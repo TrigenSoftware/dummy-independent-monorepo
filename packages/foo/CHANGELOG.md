@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/TrigenSoftware/dummy-independent-monorepo/compare/dummy-independent-monorepo-foo%401.0.0...dummy-independent-monorepo-foo%401.1.0) (2026-07-06)
+
+### Features
+
+* add shout function ([32d11f8](https://github.com/TrigenSoftware/dummy-independent-monorepo/commit/32d11f8006f2fbc304b21c372b8c3f9db1dd270a))
+
 ## 1.0.0 (2026-07-06)
 
 ### Features
