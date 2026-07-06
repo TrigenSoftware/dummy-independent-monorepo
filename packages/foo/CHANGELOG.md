@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/TrigenSoftware/dummy-independent-monorepo/compare/dummy-independent-monorepo-foo%401.1.0...dummy-independent-monorepo-foo%402.0.0) (2026-07-06)
+
+### ⚠ BREAKING CHANGES
+
+* `foo` now requires a name argument and throws without it.
+
+### Features
+
+* require name argument in foo ([5d7f0ed](https://github.com/TrigenSoftware/dummy-independent-monorepo/commit/5d7f0edf433dcce26507ef426ff4afbb9dc8925a))
+
 ## [1.1.0](https://github.com/TrigenSoftware/dummy-independent-monorepo/compare/dummy-independent-monorepo-foo%401.0.0...dummy-independent-monorepo-foo%401.1.0) (2026-07-06)
 
 ### Features
