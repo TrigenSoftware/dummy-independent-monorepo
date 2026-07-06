@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/TrigenSoftware/dummy-independent-monorepo/compare/dummy-independent-monorepo-foo%401.1.0...dummy-independent-monorepo-foo%401.1.1) (2026-07-06)
+
+### Bug Fixes
+
+* trim shout value ([bf342e7](https://github.com/TrigenSoftware/dummy-independent-monorepo/commit/bf342e7dea082295a024faf9c043eb0e8b562316))
+
 ## [1.1.0](https://github.com/TrigenSoftware/dummy-independent-monorepo/compare/dummy-independent-monorepo-foo%401.0.0...dummy-independent-monorepo-foo%401.1.0) (2026-07-06)
 
 ### Features
