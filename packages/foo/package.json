@@ -1,0 +1,23 @@
+{
+  "name": "@trigensoftware/dummy-independent-monorepo-foo",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Foo package of the dummy independent monorepo.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/dummy-independent-monorepo.git",
+    "directory": "packages/foo"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": "./src/index.js",
+  "files": [
+    "src"
+  ]
+}

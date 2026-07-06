@@ -1,0 +1,101 @@
+name: Release
+on:
+  issue_comment:
+    types: [created, deleted]
+  push:
+    branches:
+      - main
+      - '*@*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Force specific version
+        type: string
+      as:
+        description: Release type
+        type: choice
+        options:
+          - ''
+          - major
+          - minor
+          - patch
+          - prerelease
+      prerelease:
+        description: Pre-release identifier (e.g. alpha, beta)
+        type: string
+      by-project:
+        description: JSON with per-project bump options
+        type: string
+      first-release:
+        description: Treat as the first release
+        type: boolean
+        default: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    name: Context check
+    permissions:
+      contents: read
+    outputs:
+      continue: ${{ steps.check.outputs.continue }}
+      workflow: ${{ steps.check.outputs.workflow }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7
+      - name: Context check
+        id: check
+        uses: trigensoftware/simple-release-action@latest
+        with:
+          workflow: check
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+  pull-request:
+    runs-on: ubuntu-latest
+    name: Pull request
+    needs: check
+    if: needs.check.outputs.workflow == 'pull-request'
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7
+      - name: Create or update pull request
+        uses: trigensoftware/simple-release-action@latest
+        with:
+          workflow: pull-request
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          bump-version: ${{ inputs.version }}
+          bump-as: ${{ inputs.as }}
+          bump-prerelease: ${{ inputs.prerelease }}
+          bump-by-project: ${{ inputs.by-project }}
+          bump-first-release: ${{ inputs.first-release && 'true' || '' }}
+  release:
+    runs-on: ubuntu-latest
+    name: Release
+    needs: check
+    if: needs.check.outputs.workflow == 'release'
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@trigensoftware'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Release
+        uses: trigensoftware/simple-release-action@latest
+        with:
+          workflow: release
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GITHUB_TOKEN }}

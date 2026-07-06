@@ -1,0 +1,16 @@
+{
+  "name": "dummy-independent-monorepo",
+  "type": "module",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A dummy independent monorepo to test simple-release flows.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/dummy-independent-monorepo.git"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

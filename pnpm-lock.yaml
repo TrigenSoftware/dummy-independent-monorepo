@@ -1,0 +1,19 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  packages/bar:
+    dependencies:
+      '@trigensoftware/dummy-independent-monorepo-foo':
+        specifier: workspace:^
+        version: link:../foo
+
+  packages/baz: {}
+
+  packages/foo: {}

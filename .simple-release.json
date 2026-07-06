@@ -1,0 +1,11 @@
+{
+  "project": ["@simple-release/pnpm#PnpmWorkspacesProject", {
+    "mode": "independent"
+  }],
+  "releaser": {
+    "verbose": true
+  },
+  "maintenanceBranch": {
+    "enabled": true
+  }
+}

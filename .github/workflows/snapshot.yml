@@ -1,0 +1,39 @@
+name: Snapshot
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Snapshot npm tag / pre-release identifier
+        type: string
+        required: true
+        default: snapshot
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    name: Snapshot
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v7
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@trigensoftware'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Publish snapshot
+        uses: trigensoftware/simple-release-action@latest
+        with:
+          workflow: snapshot
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          npm-token: ${{ secrets.GITHUB_TOKEN }}
+          bump-snapshot: ${{ inputs.tag }}
