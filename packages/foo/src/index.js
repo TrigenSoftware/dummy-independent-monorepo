@@ -3,5 +3,5 @@ export function foo() {
 }
 
 export function shout() {
-  return 'FOO!'
+  return 'FOO!'.trim()
 }
