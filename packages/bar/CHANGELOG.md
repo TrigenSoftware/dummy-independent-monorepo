@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/TrigenSoftware/dummy-independent-monorepo/compare/dummy-independent-monorepo-bar%401.0.0...dummy-independent-monorepo-bar%401.1.0) (2026-07-07)
+
+Version bump without any changes.
+
 ## 1.0.0 (2026-07-07)
 
 ### Features
